@@ -1,0 +1,61 @@
+body {
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+  font-family: "Arial Narrow", Arial, sans-serif;
+  font-size: 15px;
+  font-weight: bolder;
+  letter-spacing: 1.6px;
+  word-spacing: 2px;
+  color: #edddcf;
+  background-color: #faf9f6;
+}
+
+@font-face {
+  font-family: Bebas;
+  src: url("./Fontspring-DEMO-bebasneuepro-bold.otf");
+}
+
+.wrapper {
+  background-color: #240900;
+  width: 300px;
+  height: 100%;
+}
+
+.about {
+  text-transform: uppercase;
+  position: fixed;
+  top: 25px;
+  left: 25px;
+  text-align: left;
+  overflow-y: auto;
+  height: 90%;
+  scrollbar-color: transparent;
+  scrollbar-width: 0px;
+}
+
+a:link,
+a:visited {
+  font-family: "Arial Narrow", Arial, sans-serif;
+  letter-spacing: 1.6px;
+  text-decoration: none;
+  color: #edddcf;
+}
+
+.box {
+  height: 1.2vh;
+  width: 50vw;
+  margin-bottom: -0.2vh;
+  background: var(--dark);
+  display: block;
+}
+
+.return {
+  text-transform: uppercase;
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  width: 320px;
+  text-align: left, bottom;
+  z-index: 1500;
+}
