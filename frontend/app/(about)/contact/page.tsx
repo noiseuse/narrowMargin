@@ -30,7 +30,7 @@ export default function ContactPage() {
 
   return (
     <div>
-      <Banner title="02 &nbsp;Contact"></Banner>
+      <Banner title="02 &nbsp;Contact" link="/"></Banner>
 
       <div className={styles.typingContainer}>
         <form action="https://formspree.io/f/mgvakkna" method="POST">

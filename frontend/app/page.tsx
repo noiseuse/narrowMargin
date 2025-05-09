@@ -126,7 +126,7 @@ export default function HomePage() {
 
   return (
     <div>
-      <Banner title="Narrow Margin"></Banner>
+      <Banner title="Narrow Margin" link="/"></Banner>
       <div className={styles.navigation}>
         <h3 className={styles.header}>quarterly issues</h3>
         <div className={styles.routes}>{routesContent}</div>

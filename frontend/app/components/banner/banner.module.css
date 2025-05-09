@@ -10,10 +10,11 @@
   display: flex;
   align-items: center;
   top: 0;
+  cursor: default;
 }
 
 .title {
-  font-family: Bebas;
+  font-family: Bebas, Arial, Helvetica, sans-serif;
   font-size: 160px;
   align-items: center;
   color: #f4efeb;
@@ -29,8 +30,9 @@
 .title:hover {
   color: #240900;
   -webkit-text-stroke: 2px #f4efeb;
-  transition: color 0.5s ease-in-out, -webkit-text-stroke 0.5s ease-in-out;
+  transition: color 0.5s ease-in-out;
   cursor: pointer;
+  transform: scaleY(0.982);
 }
 
 @font-face {
