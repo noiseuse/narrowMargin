@@ -6,127 +6,137 @@
     <title>Narrow Margin - Home</title>
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.png" />
     <link rel="stylesheet" href="index.css" />
+
+    <link rel="stylesheet" href="https://use.typekit.net/ekv8zpw.css" />
   </head>
 
   <body>
-    <div class="wrapper">
-      <div class="about">
-        NARROW MARGIN
-        <br />
-        <br />
-        lorem ipsum
-        <br />
-        lorem ipsum blah blah blah
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        blah blah blahblah blah blahblah blah blahblah blah blah
-        <br />
-        blah blah blahblah blah blah
-        <br />
-        <br />
-        blah blah blahblah blah blahblah blah blah
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        IG&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <a
-          href="http://www.instagram.com/noiseus.e"
-          target="_blank"
-          rel="noopener noreferrer">
-          @narrowmargin
-        </a>
-        <br />
-        <br />
-        <br />
-        <br />
-        <a href="/contact">
-          Message here for
-          <br />
-          inquiries,
-          <br />
-          collaborations,
-          <br />
-          commissions,
-          <br />
-          or print requests.
-          <br />
-          <br />
-          I am available for freelance work.
-        </a>
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        blah blah blah &amp;
-        <br />
-        blah blah blahblah blah blah
-        <br />
-        <br />
-        blah blah blah
-        <br />
-        blah blah blahblah blah blah
-        <br />
-        blah blah blah blah
-        <br />
-        blahblahblah
-        <br />
-        blah blah blah
-        <br />
-        blahblahblah
-        <br />
-        blah
-        <br />
-        sblahblahblahblah
-        <br />
-        blahblah
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        selected recommendations include
-        <br />
-        &nbsp;April 2025
-        <br />
-        <br />
-        Jon Jost, slow moves
-        <br />
-        Michael roemer, dying
-        <br />
-        Oklou, obvious
-        <br />
-        Ray carney, cassavetes on cassavetes
-        <br />
-        shiguehiko hasumi, directed by yasujiro ozu
-        <br />
-        sonny sharrock, black woman
-        <br />
-        Steve Mitchell, little angel
-        <br />
-        Victrola, maritime tatami
-        <br />
-        Vincent Grenier, while revolved
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
+    <div class="body">
+      <div class="title">
+        <h1>NARROW MARGIN</h1>
       </div>
+      <div class="navigation">
+        <h3 class="header">quarterly issues</h3>
+        <div class="routes">
+          <div class="route">
+            <h4 class="route-num">01 &nbsp; &nbsp;</h4>
+            <h4 class="route-title">August, &nbsp;2025</h4>
+          </div>
+        </div>
+      </div>
+      <div class="down-arrow"></div>
+      <div style="height: 920px"></div>
     </div>
-
-    <div class="return">
-      <a href="/" class="index">HOME</a>
-      &nbsp;&nbsp;
-      <a href="/contact" class="contact">contact</a>
-    </div>
+    <script src="index.js"></script>
   </body>
 </html>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const navigationHeader = document.querySelector(".header");
+    let downArrow = document.querySelector(".down-arrow");
+    let routes = document.querySelector(".routes");
+
+    setTimeout(() => {
+      downArrow.style.opacity = "1"; // Make it visible
+      downArrow.style.transition = "opacity 1.5s ease-in-out"; // Add a smooth transition
+    }, 3000); // 3000ms = 3 seconds
+
+    // Define the content to replace on scroll
+    const newHeaderContent = "site index";
+    const newListedItemContent = `
+    <div class="about-nav">
+        <div class="route">
+            <h4 class="route-num">01 &nbsp; &nbsp; </h4>
+            <h4 class="route-title"> On &nbsp;Narrow &nbsp;Margin</h4>
+        </div>
+        <div class="route">
+            <h4 class="route-num">02 &nbsp; &nbsp; </h4>
+            <h4 class="route-title">Contact</h4>
+        </div>
+        <div class="route">
+            <h4 class="route-num">03 &nbsp; &nbsp; </h4>
+            <h4 class="route-title">Donations&nbsp; & &nbsp;Subscriptions</h4>
+        </div>
+        <div class="route">
+            <h4 class="route-num">04 &nbsp; &nbsp; </h4>
+            <h4 class="route-title">Contributors</h4>
+        </div>
+        <div class="route">
+            <h4 class="route-num">05 &nbsp; &nbsp; </h4>
+            <h4 class="route-title">Latest Pieces</h4>
+        </div>
+      </div>
+  `;
+
+    function updateContentOnScroll() {
+      const scrollPosition = window.scrollY;
+
+      if (scrollPosition > 0) {
+        // Add slide-out class
+        navigationHeader.classList.add("fade-out");
+        routes.classList.add("slide-out");
+        downArrow.style.opacity = "0";
+        downArrow.style.transition = "opacity 0.6 ease-in-out";
+
+        // Wait for slide-out to complete before updating content
+        setTimeout(() => {
+          navigationHeader.textContent = newHeaderContent;
+          routes.innerHTML = newListedItemContent;
+
+          // Re-select the updated routes element
+          routes = document.querySelector(".routes");
+
+          // Add slide-in class after updating content
+          navigationHeader.classList.remove("fade-out");
+          navigationHeader.classList.add("fade-in");
+          routes.classList.remove("slide-out");
+          routes.classList.add("slide-in");
+
+          // Remove slide-in class after animation completes
+          setTimeout(() => {
+            navigationHeader.classList.remove("fade-in");
+            routes.classList.remove("slide-in");
+          }, 600); // Match the CSS transition duration
+        }, 600); // Match the CSS transition duration
+      } else {
+        // Add slide-out class
+        navigationHeader.classList.add("fade-out");
+        routes.classList.add("slide-out");
+        downArrow.style.opacity = "1";
+        downArrow.style.transition = "opacity 2 ease-in-out";
+
+        // Wait for slide-out to complete before resetting content
+        setTimeout(() => {
+          navigationHeader.textContent = "quarterly issues";
+          const ogRoutes = `
+          <div class="route">
+            <h4 class="route-num">01 &nbsp; &nbsp; </h4>
+            <h4 class="route-title">August, &nbsp;2025</h4>
+          </div>
+        `;
+          routes.innerHTML = ogRoutes;
+
+          // Re-select the updated routes element
+          routes = document.querySelector(".routes");
+
+          // Add slide-in class after resetting content
+          navigationHeader.classList.remove("fade-out");
+          navigationHeader.classList.add("fade-in");
+          routes.classList.remove("slide-out");
+          routes.classList.add("slide-in");
+
+          // Remove slide-in class after animation completes
+          setTimeout(() => {
+            navigationHeader.classList.remove("fade-in");
+            downArrow.classList.add("fade-in");
+            routes.classList.remove("slide-in");
+          }, 600); // Match the CSS transition duration
+        }, 600); // Match the CSS transition duration
+      }
+    }
+
+    // Attach the scroll event listener
+    window.addEventListener("scroll", updateContentOnScroll);
+  });
+</script>
