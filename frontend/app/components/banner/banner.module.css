@@ -1,0 +1,59 @@
+.banner {
+  width: 100%;
+  height: 123px;
+  margin-top: 25px;
+  background-color: #240900;
+  overflow-x: auto;
+  overflow-y: hidden;
+  position: fixed;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  top: 0;
+}
+
+.title {
+  font-family: Bebas;
+  font-size: 160px;
+  align-items: center;
+  color: #f4efeb;
+  letter-spacing: -3px;
+  margin-left: 5px;
+  height: auto;
+  position: relative;
+  transition: color 0.5s ease-in-out;
+  top: -6%;
+  text-transform: uppercase;
+}
+
+.title:hover {
+  color: #240900;
+  -webkit-text-stroke: 2px #f4efeb;
+  transition: color 0.5s ease-in-out, -webkit-text-stroke 0.5s ease-in-out;
+  cursor: pointer;
+}
+
+@font-face {
+  font-family: Bebas;
+  src: url("/fonts/bebasneuepro-bold.otf");
+}
+
+@media (max-width: 783px) {
+  .banner {
+    height: 15.7vw;
+  }
+
+  .title {
+    font-size: calc(1.3 * 15.7vw);
+  }
+}
+
+@media (max-height: 500px) {
+  .banner {
+    height: 24vh;
+  }
+
+  .title {
+    font-size: calc(1.3 * 24vh);
+  }
+}

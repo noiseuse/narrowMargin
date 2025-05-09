@@ -1,0 +1,134 @@
+/* NAVIGATION */
+.navigation {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  bottom: 25%;
+  right: 12%;
+  width: 250px;
+}
+
+.header {
+  justify-content: center;
+  position: relative;
+  margin-bottom: clamp(-1.3rem, -1vw, -0.8rem);
+  display: flex;
+}
+
+.routes {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  top: 100%;
+  left: 6.3rem;
+}
+
+.route {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  position: relative;
+  margin-bottom: -10px;
+  width: 350px;
+}
+
+.routeTitle:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+/* DOWN ARROW */
+.downArrow {
+  position: fixed;
+  top: calc(100vh - 120px);
+  left: calc(50% - 14px);
+  width: 0;
+  height: 30px;
+  border: 2px solid #240900;
+  border-radius: 2px;
+  animation: jumpInfinite 3s infinite;
+  opacity: 0;
+}
+
+.downArrow:after {
+  content: " ";
+  position: absolute;
+  top: 12px;
+  left: -10px;
+  width: 16px;
+  height: 16px;
+  border-bottom: 4px solid;
+  border-right: 4px solid;
+  border-radius: 4px;
+  transform: rotateZ(45deg);
+}
+
+@keyframes jumpInfinite {
+  0% {
+    margin-top: 0;
+  }
+  30% {
+    margin-top: 20px;
+  }
+  100% {
+    margin-top: 0;
+  }
+}
+
+/* ANIMATION TRANSITIONS */
+.navigation,
+.header,
+.routes {
+  opacity: 1;
+  transition: transform 0.6s ease-in-out, opacity 0.6s ease-in-out;
+}
+
+.fadeOut {
+  opacity: 0;
+}
+
+.fadeIn {
+  opacity: 1;
+}
+
+.slideOut {
+  opacity: 0;
+  transform: translateY(-20px);
+}
+
+.slideIn {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.slideOut,
+.slideIn {
+  transition: transform 0.6s ease-in-out, opacity 0.6s ease-in-out,
+    filter 0.6s ease-in-out;
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 1300px) {
+  .routes {
+    left: 6.8rem;
+    transition: all 0.5s 1s ease-out;
+  }
+
+  .routeTitle {
+    letter-spacing: -1.5px;
+  }
+}
+
+@media (max-width: 783px) {
+  .aboutNav {
+    position: relative;
+    transition: all 0.5s 1s ease-out;
+    left: -3.3rem;
+  }
+
+  .navigation {
+    right: calc(20% - 1.8rem);
+    transition: all 0.5s 1s ease-out;
+  }
+}

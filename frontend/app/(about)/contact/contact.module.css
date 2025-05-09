@@ -1,0 +1,70 @@
+.typingContainer form {
+  text-align: center;
+  font-size: 24px;
+  margin-top: 60vh;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.typingContainer input[type="email"],
+.typingContainer input[type="text"],
+.typingContainer textarea {
+  width: 35%;
+  transition: all 1s ease;
+}
+
+.typingContainer input[type="text"],
+.typingContainer input[type="email"] {
+  border: none;
+  border-bottom: 1.5px solid #282828;
+  outline: none;
+  font-size: 1rem;
+  padding: 0.5rem 0;
+  background-color: transparent;
+  color: #282828;
+  text-transform: uppercase;
+  font-family: "Arial Narrow", Arial, sans-serif;
+}
+
+.typingContainer textarea {
+  height: 150px;
+  resize: none;
+  outline: none;
+  font-size: 2rem;
+  line-height: 2rem;
+  padding: 0.5rem 0;
+  border: none;
+  background-color: transparent;
+  color: #282828;
+  caret-color: #282828;
+  font-family: "Arial Narrow", Arial, sans-serif;
+}
+
+.typingContainer button {
+  margin-top: 1rem;
+  font-size: 1rem;
+  font-family: "Arial Narrow", Arial, sans-serif;
+  text-transform: uppercase;
+  font-weight: bold;
+  background-color: transparent;
+  color: #282828;
+  border: none;
+  cursor: pointer;
+  transition: background-color 200ms;
+}
+
+.typingContainer button:hover {
+  color: #5f5f5f;
+}
+
+@media (max-width: 1000px) {
+  .typingContainer input[type="email"],
+  .typingContainer input[type="text"],
+  .typingContainer textarea {
+    width: 65%;
+    transition: all 1s ease;
+  }
+}
