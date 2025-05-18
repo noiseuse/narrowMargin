@@ -19,6 +19,10 @@ ALLOWED_HOSTS = []
 # CORS settings
 CORS_ALLOW_ALL_ORIGINS = True
 
+# Media files settings
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
+
 
 # Application definition
 

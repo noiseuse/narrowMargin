@@ -61,9 +61,8 @@
 }
 
 @media (max-width: 1000px) {
-  .typingContainer input[type="email"],
   .typingContainer input[type="text"],
-  .typingContainer textarea {
+  .typingContainer input[type="email"] {
     width: 65%;
     transition: all 1s ease;
   }

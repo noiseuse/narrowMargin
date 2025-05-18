@@ -5,13 +5,13 @@ from .tools import article_image_path
 class Issue(models.Model):
     slug = models.SlugField(unique=True, blank=True)
     title = models.CharField(max_length=200)
-    banner_images = models.JSONField(upload_to='banner_images/', blank=True, null=True)
-    filmmakers = models.JSONField(blank=True, null=True)
+    banner_images = models.JSONField(default=list, upload_to='banner_images/', blank=True, null=True)
+    filmmakers = models.JSONField(default=list, blank=True, null=True)
 
     editorial_by = models.CharField(max_length=200, blank=True)
-    writers = models.JSONField(blank=True, null=True)
-    staff = models.JSONField(blank=True, null=True)
-    thanks = models.JSONField(blank=True, null=True)
+    writers = models.JSONField(default=list, blank=True, null=True)
+    staff = models.JSONField(default=list, blank=True, null=True)
+    thanks = models.JSONField(default=list, blank=True, null=True)
 
     articles = models.ManyToManyField('Article', related_name='issues', blank=True)
 
@@ -47,7 +47,7 @@ class Article(models.Model):
     title = models.CharField(max_length=200)
     authors = models.ManyToManyField(Author, related_name='articles', blank=True)
     content = models.TextField()
-    date_published = models.DateField()
+    date_published = models.DateField(null=True, blank=True)
     images = models.JSONField(blank=True, null=True)
     slug = models.SlugField(unique=True, blank=True)
     filmmaker = models.ForeignKey(Filmmaker, on_delete=models.PROTECT, blank=True, null=True)
@@ -71,10 +71,17 @@ class ArticleImage(models.Model):
     image_type = models.CharField(max_length=10, choices=ARTICLE_IMAGE_TYPES)
     subtitle = models.CharField(max_length=200, blank=True)
 
-    tag_number = models.PositiveIntegerField()
+    file_name = models.CharField(max_length=200, blank=True)
 
     class Meta:
-        unique_together = ('article', 'tag_number')
+        unique_together = ('article', 'file_name')
 
     def __str__(self):
-        return f"{self.article.title} - {self.image_type} [{self.tag_number}]"
+        return f"{self.article.title} - {self.image_type} [{self.file_name}]"
+    
+class IssueImage(models.Model):
+    issue = models.ForeignKey('Issue', related_name='images', on_delete=models.CASCADE)
+    image = models.ImageField(upload_to='issues/images/')
+
+    def __str__(self):
+        return f"Image for {self.issue.title}"
